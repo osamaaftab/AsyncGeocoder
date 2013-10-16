@@ -13,8 +13,6 @@ import com.alwaysallthetime.asyncgeocoder.response.AsyncGeocoderResponseHandler;
 import java.util.Locale;
 
 public class AsyncGeocoder {
-    private static final String TAG = "AsyncGeocoder";
-
     private static AsyncGeocoder mInstance;
 
     public static AsyncGeocoder getInstance(Context context) {
@@ -24,22 +22,22 @@ public class AsyncGeocoder {
         return mInstance;
     }
 
-    private Geocoder mGeocoder;
+    private Context mContext;
 
     private AsyncGeocoder(Context context) {
-        mGeocoder = new Geocoder(context, Locale.getDefault());
+        mContext = context;
     }
 
     public void getFromLocation(double latitude, double longitude, int maxResults, AsyncGeocoderResponseHandler responseHandler) {
-        execute(new FromLocationRequest(latitude, longitude, maxResults, mGeocoder, responseHandler));
+        execute(new FromLocationRequest(latitude, longitude, maxResults, new Geocoder(mContext, Locale.getDefault()), responseHandler));
     }
 
     public void getFromLocationName(String locationName, int maxResults, AsyncGeocoderResponseHandler responseHandler) {
-        execute(new FromLocationNameRequest(locationName, maxResults, mGeocoder, responseHandler));
+        execute(new FromLocationNameRequest(locationName, maxResults, new Geocoder(mContext, Locale.getDefault()), responseHandler));
     }
 
     public void getFromLocationName(String locationName, double lowerLeftLatitude, double lowerLeftLongitude, double upperRightLatitude, double upperRightLongitude, int maxResults, AsyncGeocoderResponseHandler responseHandler) {
-        execute(new FromLocationNameRequest(locationName, lowerLeftLatitude, lowerLeftLongitude, upperRightLatitude, upperRightLongitude, maxResults, mGeocoder, responseHandler));
+        execute(new FromLocationNameRequest(locationName, lowerLeftLatitude, lowerLeftLongitude, upperRightLatitude, upperRightLongitude, maxResults, new Geocoder(mContext, Locale.getDefault()), responseHandler));
     }
 
     private void execute(AsyncGeocoderRequest request) {
