@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 
 import com.alwaysallthetime.asyncgeocoder.request.AsyncGeocoderRequest;
+import com.alwaysallthetime.asyncgeocoder.request.FromLocationNameRequest;
 import com.alwaysallthetime.asyncgeocoder.request.FromLocationRequest;
 import com.alwaysallthetime.asyncgeocoder.response.AsyncGeocoderResponseHandler;
 
@@ -31,6 +32,14 @@ public class AsyncGeocoder {
 
     public void getFromLocation(double latitude, double longitude, int maxResults, AsyncGeocoderResponseHandler responseHandler) {
         execute(new FromLocationRequest(latitude, longitude, maxResults, mGeocoder, responseHandler));
+    }
+
+    public void getFromLocationName(String locationName, int maxResults, AsyncGeocoderResponseHandler responseHandler) {
+        execute(new FromLocationNameRequest(locationName, maxResults, mGeocoder, responseHandler));
+    }
+
+    public void getFromLocationName(String locationName, double lowerLeftLatitude, double lowerLeftLongitude, double upperRightLatitude, double upperRightLongitude, int maxResults, AsyncGeocoderResponseHandler responseHandler) {
+        execute(new FromLocationNameRequest(locationName, lowerLeftLatitude, lowerLeftLongitude, upperRightLatitude, upperRightLongitude, maxResults, mGeocoder, responseHandler));
     }
 
     private void execute(AsyncGeocoderRequest request) {
