@@ -5,8 +5,8 @@ import android.location.Geocoder;
 import android.os.AsyncTask;
 import android.os.Build;
 
-import com.alwaysallthetime.asyncgeocoder.data.AsyncGeocoderRequest;
-import com.alwaysallthetime.asyncgeocoder.data.FromLocationRequest;
+import com.alwaysallthetime.asyncgeocoder.request.AsyncGeocoderRequest;
+import com.alwaysallthetime.asyncgeocoder.request.FromLocationRequest;
 import com.alwaysallthetime.asyncgeocoder.response.AsyncGeocoderResponseHandler;
 
 import java.util.Locale;

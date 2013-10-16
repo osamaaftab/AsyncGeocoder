@@ -4,7 +4,7 @@ import android.location.Address;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.alwaysallthetime.asyncgeocoder.data.AsyncGeocoderRequest;
+import com.alwaysallthetime.asyncgeocoder.request.AsyncGeocoderRequest;
 import com.alwaysallthetime.asyncgeocoder.response.AsyncGeocoderResponseHandler;
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.alwaysallthetime.asyncgeocoder.data;
+package com.alwaysallthetime.asyncgeocoder.request;
 
 import android.location.Address;
 import android.location.Geocoder;
