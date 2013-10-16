@@ -13,14 +13,12 @@ public class FromLocationRequest extends AsyncGeocoderRequest {
 
     private double mLatitude;
     private double mLongitude;
-    private int mMaxResults;
 
     public FromLocationRequest(double latitude, double longitude, int maxResults, Geocoder geocoder, AsyncGeocoderResponseHandler responseHandler) {
-        super(geocoder, responseHandler);
+        super(maxResults, geocoder, responseHandler);
 
         mLatitude = latitude;
         mLongitude = longitude;
-        mMaxResults = maxResults;
     }
 
     public double getLatitude() {

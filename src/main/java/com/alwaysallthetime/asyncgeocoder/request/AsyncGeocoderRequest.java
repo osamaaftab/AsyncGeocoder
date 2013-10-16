@@ -11,8 +11,10 @@ import java.util.List;
 public abstract class AsyncGeocoderRequest {
     private final AsyncGeocoderResponseHandler mResponseHandler;
     protected final Geocoder mGeocoder;
+    protected int mMaxResults;
 
-    protected AsyncGeocoderRequest(Geocoder geocoder, AsyncGeocoderResponseHandler responseHandler) {
+    protected AsyncGeocoderRequest(int maxResults, Geocoder geocoder, AsyncGeocoderResponseHandler responseHandler) {
+        mMaxResults = maxResults;
         mGeocoder = geocoder;
         mResponseHandler = responseHandler;
     }
