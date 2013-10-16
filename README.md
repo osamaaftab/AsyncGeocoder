@@ -26,3 +26,7 @@ AsyncGeocoder.getInstance(context).getFromLocation(lat, lon, 5, new AsyncGeocode
 });
 ```
 It's important to note that just as when using the ``Geocoder`` class directly, you should always check ``Geocoder.isPresent()`` before attempting to use these methods.
+
+License
+-------
+MIT. See LICENSE.md file.
