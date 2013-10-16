@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class FromLocationRequest extends AsyncGeocoderRequest {
-    private static final String TAG = "FromLocationRequest";
 
     private double mLatitude;
     private double mLongitude;
@@ -21,20 +20,8 @@ public class FromLocationRequest extends AsyncGeocoderRequest {
         mLongitude = longitude;
     }
 
-    public double getLatitude() {
-        return mLatitude;
-    }
-
-    public double getLongitude() {
-        return mLongitude;
-    }
-
-    public int getMaxResults() {
-        return mMaxResults;
-    }
-
     @Override
-    public List<Address> geocode() throws IOException {
-        return mGeocoder.getFromLocation(mLatitude, mLongitude, mMaxResults);
+    public List<Address> geocode(Geocoder geocoder, int maxResults) throws IOException {
+        return geocoder.getFromLocation(mLatitude, mLongitude, maxResults);
     }
 }

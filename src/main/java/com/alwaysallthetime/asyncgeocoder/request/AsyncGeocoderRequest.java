@@ -10,8 +10,8 @@ import java.util.List;
 
 public abstract class AsyncGeocoderRequest {
     private final AsyncGeocoderResponseHandler mResponseHandler;
-    protected final Geocoder mGeocoder;
-    protected int mMaxResults;
+    private final Geocoder mGeocoder;
+    private final int mMaxResults;
 
     protected AsyncGeocoderRequest(int maxResults, Geocoder geocoder, AsyncGeocoderResponseHandler responseHandler) {
         mMaxResults = maxResults;
@@ -23,5 +23,13 @@ public abstract class AsyncGeocoderRequest {
         return mResponseHandler;
     }
 
-    public abstract List<Address> geocode() throws IOException;
+    public Geocoder getGeocoder() {
+        return mGeocoder;
+    }
+
+    public int getMaxResults() {
+        return mMaxResults;
+    }
+
+    public abstract List<Address> geocode(Geocoder geocoder, int maxResults) throws IOException;
 }

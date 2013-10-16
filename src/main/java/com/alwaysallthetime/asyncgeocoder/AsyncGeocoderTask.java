@@ -19,7 +19,7 @@ public class AsyncGeocoderTask extends AsyncTask<AsyncGeocoderRequest, Void, Voi
         for(AsyncGeocoderRequest request : requests) {
             AsyncGeocoderResponseHandler responseHandler = request.getResponseHandler();
             try {
-                List<Address> addresses = request.geocode();
+                List<Address> addresses = request.geocode(request.getGeocoder(), request.getMaxResults());
                 responseHandler.onSuccess(addresses);
             } catch(IOException e) {
                 Log.d(TAG, e.getMessage(), e);

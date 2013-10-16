@@ -31,11 +31,11 @@ public class FromLocationNameRequest extends AsyncGeocoderRequest {
     }
 
     @Override
-    public List<Address> geocode() throws IOException {
+    public List<Address> geocode(Geocoder geocoder, int maxResults) throws IOException {
         if(mLowerLeftLatitude != 0 || mLowerLeftLongitude != 0 || mUpperRightLongitude != 0 || mUpperRightLatitude != 0) {
-            return mGeocoder.getFromLocationName(mLocationName, mMaxResults, mLowerLeftLatitude, mLowerLeftLongitude, mUpperRightLatitude, mUpperRightLongitude);
+            return geocoder.getFromLocationName(mLocationName, maxResults, mLowerLeftLatitude, mLowerLeftLongitude, mUpperRightLatitude, mUpperRightLongitude);
         } else {
-            return mGeocoder.getFromLocationName(mLocationName, mMaxResults);
+            return geocoder.getFromLocationName(mLocationName, maxResults);
         }
     }
 }
